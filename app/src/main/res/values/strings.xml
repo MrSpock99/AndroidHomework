@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Homework_1</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_title">My profile</string>
+    <string name="profile_email">E-mail</string>
+    <string name="profile_phone_number">Phone\nnumber</string>
+    <string name="profile_edit">Edit</string>
+    <string name="hint_name">Your name</string>
+    <string name="hint_email">Your E-Mail</string>
+    <string name="hint_phone_number">Your phone number</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+    <string name="toast_success_message">Data successfully has been sent</string>
+    <string name="toast_error_message">There was something wrong</string>
+    <string name="toast_cancel_message">Data editing canceled</string>
+</resources>
