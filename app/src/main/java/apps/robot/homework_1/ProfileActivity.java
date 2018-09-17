@@ -84,6 +84,4 @@ public class ProfileActivity extends AppCompatActivity {
                 tv_email.getText().toString() + "\n" +
                 tv_phone_number.getText().toString();
     }
-
-
 }
