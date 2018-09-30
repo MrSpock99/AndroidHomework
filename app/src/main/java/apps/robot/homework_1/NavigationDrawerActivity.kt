@@ -1,33 +1,21 @@
 package apps.robot.homework_1
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, EditDialogFragment.OnEditedListener {
-    override fun onEdit(login: String, email: String) {
-        val profileFragment = supportFragmentManager.findFragmentByTag(ProfileFragment.toString()) as ProfileFragment
-        profileFragment.updateLoginEmail(login, email)
-
-        val tvHeaderLogin = findViewById<TextView>(R.id.tv_header_login)
-        val tvHeaderEmail = findViewById<TextView>(R.id.tv_header_email)
-
-        tvHeaderLogin.text = login
-        tvHeaderEmail.text = email
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
-
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -55,9 +43,9 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -80,5 +68,16 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onEdit(login: String, email: String) {
+        val fragment = supportFragmentManager.findFragmentByTag(ProfileFragment.toString())
+
+        if (fragment is ProfileFragment) {
+            fragment.updateLoginEmail(login, email)
+        }
+
+        tv_header_login.text = login
+        tv_header_email.text = email
     }
 }

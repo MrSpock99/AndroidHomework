@@ -1,7 +1,5 @@
 <resources>
-    <string name="toast_success_message">Data successfully has been sent</string>
-    <string name="toast_error_message">There was something wrong</string>
-    <string name="toast_cancel_message">Data editing canceled</string>
+    <string name="app_name">Homework</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -15,5 +13,6 @@
     <string name="btn_edit_text">Edit</string>
     <string name="all_login">Login</string>
     <string name="all_email">Email</string>
-    <string name="app_name">Homework</string>
+    <string name="all_ok">OK</string>
+    <string name="all_cancel">Cancel</string>
 </resources>

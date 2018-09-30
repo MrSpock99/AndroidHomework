@@ -5,16 +5,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_profile, container, false)
-        val btnEdit = rootView!!.findViewById<Button>(R.id.btn_edit)
-        btnEdit.setOnClickListener {
+        rootView.btn_edit.setOnClickListener {
             val ft = fragmentManager
 
             val editDialogFragment = EditDialogFragment.newInstance(getString(R.string.title_edit_dialog))
@@ -26,16 +25,11 @@ class ProfileFragment : Fragment() {
     }
 
     fun updateLoginEmail(login: String, email: String) {
-        val tvLogin = view!!.findViewById<TextView>(R.id.tv_user_login)
-        val tvEmail = view!!.findViewById<TextView>(R.id.tv_user_email)
-
-        tvLogin.text = login
-        tvEmail.text = email
+        tv_user_login.text = login
+        tv_user_email.text = email
     }
 
-
     companion object {
-        @JvmStatic
         fun newInstance() = ProfileFragment()
     }
 }
