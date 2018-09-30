@@ -5,7 +5,8 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
-import kotlinx.android.synthetic.main.fragment_edit_dialog.*
+import android.view.LayoutInflater
+import kotlinx.android.synthetic.main.fragment_edit_dialog.view.*
 
 class EditDialogFragment : DialogFragment() {
     private var mListener: OnEditedListener? = null
@@ -21,11 +22,12 @@ class EditDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val alertDialogBuilder = AlertDialog.Builder(context)
+        val rootView = LayoutInflater.from(context).inflate(R.layout.fragment_edit_dialog, null, false)
         alertDialogBuilder
-                .setView(activity?.layoutInflater?.inflate(R.layout.fragment_edit_dialog, null))
+                .setView(rootView)
                 .setTitle(arguments?.getString(ARG_TITLE))
                 .setPositiveButton(getString(R.string.all_ok)) { _, _ ->
-                    mListener?.onEdit(et_login?.text.toString(), et_email?.text.toString())
+                    mListener?.onEdit(rootView.et_login?.text.toString(), rootView.et_email?.text.toString())
                 }
                 .setNegativeButton(getString(R.string.all_cancel)) { dialog, _ ->
                     dialog.dismiss()
