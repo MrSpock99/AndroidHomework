@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Homework_1</string>
+    <string name="activity_details_interests">Interests:</string>
+    <string name="activity_interests_name">Name:</string>
 </resources>
