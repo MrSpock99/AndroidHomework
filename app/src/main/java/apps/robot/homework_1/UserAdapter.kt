@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_user.view.*
 
-class UserAdapter(val context: Context, val items: ArrayList<User>, private val clickListener: UsersListClickListener) : RecyclerView.Adapter<UserAdapter.UserHolder>() {
+class UserAdapter(private val context: Context, private val items: ArrayList<User>, private val clickListener: UsersListClickListener) : RecyclerView.Adapter<UserAdapter.UserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserHolder =
-            UserHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false), clickListener)
+            UserHolder(LayoutInflater.from(context).inflate(R.layout.item_user, parent, false), clickListener)
 
     override fun getItemCount(): Int {
         return items.size
@@ -33,7 +33,7 @@ class UserAdapter(val context: Context, val items: ArrayList<User>, private val 
         }
 
         override fun onClick(v: View) {
-            mListener?.onClick(v, adapterPosition)
+            mListener?.onClick(adapterPosition)
         }
     }
 }
